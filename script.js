@@ -13,14 +13,22 @@ let totalFeijão = preçoFeijão * 2
 let totalVinho = preçoVinho * 3
 
 total = totalRefri + totalMacarrao + totalErvilha + totalArroz + totalFeijão + totalVinho
+roundTotal = Math.round(total)
 
-if (total % 2 == 0) {
-    let voce = metade - vinho;
-    let amigo = metade + vinho;
+metade = roundTotal / 2
+metadeSemVinho = (roundTotal - totalVinho) / 2
+metadeComVinho = metadeSemVinho + totalVinho
+
+let voce = 0
+let amigo = 0
+
+if (roundTotal % 2 == 0) {
+    let voce = metadeSemVinho;
+    let amigo = metadeSemVinho + totalVinho;
+    console.log(`O valor total da compra é ${roundTotal}. Você deve pagar ${voce} e seu amigo deve pagar ${amigo}`)
 }
 else {
-    let você = metade;
+    let voce = metade;
     let amigo = metade;
+    console.log(`O valor total da compra é ${roundTotal}. Você deve pagar ${voce} e seu amigo deve pagar ${amigo}`)
 }
-
-console.log("O valor total da compra é ${total}. Você deve pagar ${voce} e seu amigo deve pagar ${amigo}")
